@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Shop from "./Shop"
+import Cart from "./Cart"
+import Favorites from "./Favorites"
+import Header from "./Header";
+import {Container} from "react-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => {
+    return (
+        <Router>
+            <Header/>
+            <Container className="my-3">
+                <Route exact path="/" component={Shop}/>
+                <Route exact path="/cart" component={Cart}/>
+                <Route exact path="/favorites" component={Favorites}/>
+            </Container>
+        </Router>
+    );
+};
 
 export default App;
